@@ -1,0 +1,71 @@
+{
+  "name": "YA|RA",
+  "scopeName": "source.ya-ra",
+  "fileTypes": ["YA-RA", "ya-ra"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#intent" },
+    { "include": "#pattern" },
+    { "include": "#signed" },
+    { "include": "#keyword" },
+    { "include": "#check" },
+    { "include": "#use" },
+    { "include": "#version" }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.line.number-sign.ya-ra",
+      "match": "#.*$"
+    },
+    "intent": {
+      "name": "meta.intent.ya-ra",
+      "match": "^(Intent)\\s*:\\s*(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.intent.ya-ra" },
+        "2": { "name": "string.unquoted.intent.ya-ra" }
+      }
+    },
+    "pattern": {
+      "name": "meta.pattern.ya-ra",
+      "match": "^(Pattern)\\s*:\\s*(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.pattern.ya-ra" },
+        "2": { "name": "string.unquoted.pattern.ya-ra" }
+      }
+    },
+    "signed": {
+      "name": "meta.envelope.ya-ra",
+      "match": "^(Signed)\\.\\s*(.+)\\s*/\\s*(.+)$",
+      "captures": {
+        "1": { "name": "keyword.operator.envelope.ya-ra" },
+        "2": { "name": "entity.name.actor.ya-ra" },
+        "3": { "name": "constant.other.timestamp.ya-ra" }
+      }
+    },
+    "keyword": {
+      "name": "keyword.other.ya-ra",
+      "match": "^(00|0|glimpse|cut|universe|measure\\s+(all|any))$"
+    },
+    "check": {
+      "name": "meta.check.ya-ra",
+      "match": "^(⊦|check)\\s+(words|exists|run|contains|eq|use)\\s+(.*)$",
+      "captures": {
+        "1": { "name": "punctuation.definition.check.ya-ra" },
+        "2": { "name": "entity.name.function.check.ya-ra" },
+        "3": { "name": "string.unquoted.args.ya-ra" }
+      }
+    },
+    "use": {
+      "name": "meta.use.ya-ra",
+      "match": "^(use)\\s+(\\S+)$",
+      "captures": {
+        "1": { "name": "keyword.control.use.ya-ra" },
+        "2": { "name": "string.unquoted.path.ya-ra" }
+      }
+    },
+    "version": {
+      "name": "constant.numeric.rv.ya-ra",
+      "match": "^rv\\s*\\d+(?:\\.\\d+){0,2}$"
+    }
+  }
+}

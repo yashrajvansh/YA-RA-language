@@ -1,0 +1,26 @@
+{
+  "name": "ya-ra",
+  "displayName": "YA|RA",
+  "description": "YA|RA language. Extension .YA-RA. Not VirusTotal YARA.",
+  "version": "0.3.0",
+  "publisher": "yashrajvansh",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ya-ra",
+        "aliases": ["YA|RA", "YA-RA"],
+        "extensions": [".YA-RA", ".ya-ra"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ya-ra",
+        "scopeName": "source.ya-ra",
+        "path": "../grammars/ya-ra.tmLanguage.json"
+      }
+    ]
+  }
+}

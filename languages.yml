@@ -1,0 +1,21 @@
+# Proposed github-linguist entry. Insert alphabetically after YARA.
+# language_id omitted — linguist script/update-ids assigns it.
+# Name is YA-RA (filesystem). Spoken name is YA|RA.
+# This is NOT YARA (.yar / .yara), the malware-rule language already in linguist.
+
+YA-RA:
+  type: programming
+  color: "#C4A35A"
+  fs_name: YA-RA
+  aliases:
+  - YA|RA
+  - yara-lang
+  - ya-ra
+  extensions:
+  - ".YA-RA"
+  - ".ya-ra"
+  tm_scope: source.ya-ra
+  ace_mode: text
+  interpreters:
+  - ya-ra
+  wrap: false
