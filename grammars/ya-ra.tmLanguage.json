@@ -44,7 +44,7 @@
     },
     "keyword": {
       "name": "keyword.other.ya-ra",
-      "match": "^(00|0|glimpse|cut|universe|measure\\s+(all|any))$"
+      "match": "^(00|0|glimpse|cut|universe|cura|measure\\s+(all|any))$"
     },
     "check": {
       "name": "meta.check.ya-ra",
@@ -52,7 +52,35 @@
       "captures": {
         "1": { "name": "punctuation.definition.check.ya-ra" },
         "2": { "name": "entity.name.function.check.ya-ra" },
-        "3": { "name": "string.unquoted.args.ya-ra" }
+        "3": {
+          "name": "string.unquoted.args.ya-ra",
+          "patterns": [
+            { "include": "#binding-ref" },
+            { "include": "#binding-as" },
+            { "include": "#binding-amp" }
+          ]
+        }
+      }
+    },
+    "binding-ref": {
+      "comment": "$NAME: a prior check's bound value, substituted into this argument. rv0.3.",
+      "name": "variable.other.reference.ya-ra",
+      "match": "\\$[A-Za-z_][A-Za-z0-9_]*"
+    },
+    "binding-as": {
+      "comment": "trailing `as NAME`: names this check's own value for later checks to reference via $NAME. rv0.3.",
+      "match": "\\b(as)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+      "captures": {
+        "1": { "name": "keyword.operator.bind.ya-ra" },
+        "2": { "name": "variable.other.definition.ya-ra" }
+      }
+    },
+    "binding-amp": {
+      "comment": "trailing `amp N`: a complex amplitude. Composes with `as` in either order.",
+      "match": "\\b(amp)\\s+(\\S+)",
+      "captures": {
+        "1": { "name": "keyword.operator.amp.ya-ra" },
+        "2": { "name": "constant.numeric.amp.ya-ra" }
       }
     },
     "use": {

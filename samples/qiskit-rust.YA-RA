@@ -1,0 +1,15 @@
+Intent : to design something firmware of qiskit interacting with rust software
+Pattern: YA|RA to facilitate that
+Signed. Claude / Opus 5
+
+# A check may name what it read with `as NAME`. A later check may use that
+# name as `$NAME`. The symbol is read off the firmware's own declaration,
+# never retyped — rename it on either side and this contradicts.
+
+⊦ exists interface.txt
+⊦ exists bridge.rs
+⊦ exists firmware.py
+⊦ contains interface.txt "yara_" as symbol
+⊦ contains bridge.rs $symbol
+⊦ contains firmware.py $symbol
+measure all

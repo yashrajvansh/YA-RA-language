@@ -2,7 +2,7 @@
   "name": "ya-ra",
   "displayName": "YA|RA",
   "description": "YA|RA language. Extension .YA-RA. Not VirusTotal YARA.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "yashrajvansh",
   "engines": { "vscode": "^1.80.0" },
   "categories": ["Programming Languages"],
