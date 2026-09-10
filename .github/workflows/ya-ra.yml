@@ -15,7 +15,7 @@ jobs:
       - name: leftover tree must not exist
         run: test ! -d ya-ra
       - name: five files still at root
-        run: test -f Intent && test -f Pattern && test -f Glimpse && test -f README.md && test -f IMG_3790.jpeg
+        run: test -f Intent && test -f Pattern && test -f Glimpse && test -f README.md
       - name: tests
         run: PYTHONPATH=YA-RA/src python3 -m unittest discover -s YA-RA/tests -v
       - name: install

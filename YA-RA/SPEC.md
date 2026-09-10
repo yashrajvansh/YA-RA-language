@@ -93,8 +93,10 @@ product-valuable thing in the language: **pass**, **fail** (contradicted), and
 not a failure — it is the absence of the right to answer.
 
 A *program* is a directory containing `main.YA-RA` that `use`s sibling doors
-(`program.py`). A *root* is a directory holding the five files
-`Intent`, `Pattern`, `Glimpse`, `README.md`, `IMG_3790.jpeg` (`root.py`).
+(`program.py`). A *root* is a directory holding the four files
+`Intent`, `Pattern`, `Glimpse`, `README.md`, and optionally one provenance
+attachment -- an image or PDF at the root, whose name is the root's own
+business and is discovered rather than dictated (`root.py`).
 
 ---
 

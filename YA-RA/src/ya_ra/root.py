@@ -10,7 +10,24 @@ from .ast import Check, Door, Envelope, RV
 from .types import typecheck
 
 
-ROOT_FILES = ("Intent", "Pattern", "Glimpse", "README.md", "IMG_3790.jpeg")
+# A root's four required files, and provenance as something a root may HAVE
+# rather than a filename the language dictates.
+#
+# This constant read ("Intent", "Pattern", "Glimpse", "README.md",
+# "IMG_3790.jpeg") until 2026-09-10 -- one photograph in one repository, named
+# in the language itself, so every YA|RA root anywhere on earth failed to
+# measure without a copy of it. Discovering the attachment instead keeps that
+# root passing (it has one) without requiring every other root to hold it.
+REQUIRED_FILES = ("Intent", "Pattern", "Glimpse", "README.md")
+PROVENANCE_SUFFIXES = (".jpeg", ".jpg", ".png", ".pdf", ".heic", ".webp")
+
+
+def provenance(root: Path) -> str | None:
+    """The root's attachment, if it has one. Name is the root's business."""
+    for p in sorted(Path(root).iterdir()):
+        if p.is_file() and p.suffix.lower() in PROVENANCE_SUFFIXES:
+            return p.name
+    return None
 
 
 class RootError(Exception):
@@ -33,8 +50,11 @@ def from_root(root: Path) -> Door:
         Check("words", ["intent", "17"]),
         Check("words", ["pattern", "17"]),
     ]
-    for name in ROOT_FILES:
+    for name in REQUIRED_FILES:
         checks.append(Check("exists", [name]))
+    attached = provenance(root)
+    if attached:
+        checks.append(Check("exists", [attached]))
     checks.append(Check("contains", ["Glimpse", "glimpse"]))
     door = Door(
         intent=intent,
